@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+   <center> <form class="form" id="searchform" action="{% url 'search_u' %}" method="get">
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="introduzca número usuario o nombre" name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
+    <div class="bg bg-white">
+        {% for s in usuario %}
+            <ul>
+                <li><a href="{% url 'usuario_detail' pk=s.id %}">{{ s.name }}</a></li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}
